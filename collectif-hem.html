@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collectif HEM - Présentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .presentation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .slide {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards;
+        }
+        
+        .slide:nth-child(1) { animation-delay: 0.1s; }
+        .slide:nth-child(2) { animation-delay: 0.2s; }
+        .slide:nth-child(3) { animation-delay: 0.3s; }
+        .slide:nth-child(4) { animation-delay: 0.4s; }
+        .slide:nth-child(5) { animation-delay: 0.5s; }
+        .slide:nth-child(6) { animation-delay: 0.6s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Slide de titre */
+        .title-slide {
+            background: linear-gradient(135deg, #0D47A1, #00968B);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .title-slide::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,214,0,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .logo-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            padding: 10px;
+        }
+        
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.4em;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        h2 {
+            color: #0D47A1;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #FFD600;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        h3 {
+            color: #00968B;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        /* Carte de valeur */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .value-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #FFD600, #00968B);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .value-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #0D47A1;
+            margin-bottom: 15px;
+        }
+        
+        /* Prestations */
+        .service-container {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            border-left: 5px solid #00968B;
+        }
+        
+        .service-title {
+            font-size: 1.5em;
+            color: #0D47A1;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .service-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .service-list li {
+            padding: 15px 0;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        
+        .service-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 15px;
+            width: 25px;
+            height: 25px;
+            background: #FFD600;
+            color: #0D47A1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        /* Structures cibles */
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .target-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #0D47A1;
+        }
+        
+        .target-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .target-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0D47A1, #00968B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+            color: white;
+        }
+        
+        .target-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #0D47A1;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .target-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .target-needs {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        
+        .target-needs-title {
+            font-weight: bold;
+            color: #00968B;
+            margin-bottom: 10px;
+        }
+        
+        /* Processus */
+        .process-timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .process-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #FFD600, #FFA000);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(255,214,0,0.4);
+        }
+        
+        .step-content {
+            margin-left: 30px;
+            flex-grow: 1;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .step-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #0D47A1;
+            margin-bottom: 10px;
+        }
+        
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #0D47A1, #00968B);
+            color: white;
+            padding: 60px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .cta-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            background: rgba(255,255,255,0.2);
+            padding: 20px 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        
+        .contact-value {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            h2 {
+                font-size: 2em;
+            }
+            
+            .target-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        
+        <!-- Slide 1: Titre -->
+        <div class="slide title-slide">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo Collectif HEM" class="logo-img">
+            </div>
+            <h1>COLLECTIF HEM</h1>
+            <p class="subtitle">Accompagnement Social & Développement Personnel</p>
+            <p style="font-size: 1.2em; margin-top: 40px; opacity: 0.9;">
+                Une association engagée pour l'insertion sociale et l'épanouissement<br>
+                des publics les plus vulnérables
+            </p>
+        </div>
+        
+        <!-- Slide 2: Présentation de l'association -->
+        <div class="slide">
+            <h2>Qui sommes-nous ?</h2>
+            
+            <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 30px;">
+                Le <strong>Collectif HEM</strong> est une association de jeunes professionnels passionnés, 
+                œuvrant pour l'insertion sociale et le développement personnel des publics fragilisés. 
+                Notre approche combine expertise professionnelle et engagement humain pour créer 
+                un impact durable dans la vie des personnes que nous accompagnons.
+            </p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <div class="value-title">Notre Mission</div>
+                    <p>Faciliter l'insertion sociale et professionnelle des publics vulnérables 
+                    à travers des actions concrètes et personnalisées.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🌟</div>
+                    <div class="value-title">Notre Vision</div>
+                    <p>Une société inclusive où chaque personne, quelle que soit sa situation, 
+                    peut s'épanouir et réaliser son potentiel.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">💡</div>
+                    <div class="value-title">Notre Approche</div>
+                    <p>Des interventions adaptées combinant accompagnement individuel, 
+                    ateliers collectifs et activités culturelles.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <div class="value-title">Nos Valeurs</div>
+                    <p>Bienveillance, professionnalisme, innovation sociale et 
+                    respect de la dignité humaine.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 3: Nos Prestations -->
+        <div class="slide">
+            <h2>Nos Prestations</h2>
+            
+            <div class="service-container">
+                <div class="service-title">🎓 Ateliers de Formation & Sensibilisation</div>
+                <ul class="service-list">
+                    <li>Prévention des addictions (substances, écrans, jeux)</li>
+                    <li>Gestion du stress et des émotions</li>
+                    <li>Développement de l'estime de soi</li>
+                    <li>Techniques de recherche d'emploi et préparation aux entretiens</li>
+                    <li>Accompagnement aux démarches administratives</li>
+                    <li>Ateliers d'écriture thérapeutique</li>
+                </ul>
+            </div>
+            
+            <div class="service-container">
+                <div class="service-title">🎨 Activités Culturelles & Artistiques</div>
+                <ul class="service-list">
+                    <li>Ateliers de chant et expression vocale</li>
+                    <li>Animations musicales adaptées</li>
+                    <li>Art-thérapie et activités créatives</li>
+                    <li>Spectacles et représentations interactives</li>
+                    <li>Célébration d'événements (anniversaires, fêtes)</li>
+                </ul>
+            </div>
+            
+            <div class="service-container">
+                <div class="service-title">🤲 Accompagnement Personnalisé</div>
+                <ul class="service-list">
+                    <li>Soutien psychosocial individuel</li>
+                    <li>Coaching pour projet professionnel</li>
+                    <li>Médiation et résolution de conflits</li>
+                    <li>Orientation vers les services adaptés</li>
+                    <li>Suivi post-intervention</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Slide 4: Structures Cibles -->
+        <div class="slide">
+            <h2>Nos Publics & Partenaires</h2>
+            
+            <div class="target-grid">
+                <div class="target-card">
+                    <div class="target-icon">🏥</div>
+                    <div class="target-name">EHPAD</div>
+                    <div class="target-description">
+                        Établissements d'hébergement pour personnes âgées dépendantes
+                    </div>
+                    <div class="target-needs">
+                        <div class="target-needs-title">Nos interventions :</div>
+                        <ul style="margin-left: 20px;">
+                            <li>Animations musicales et culturelles</li>
+                            <li>Ateliers mémoire et stimulation cognitive</li>
+                            <li>Moments de partage intergénérationnels</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="target-card">
+                    <div class="target-icon">♿</div>
+                    <div class="target-name">Foyers Médicalisés</div>
+                    <div class="target-description">
+                        Structures accueillant des personnes en situation de handicap
+                    </div>
+                    <div class="target-needs">
+                        <div class="target-needs-title">Nos interventions :</div>
+                        <ul style="margin-left: 20px;">
+                            <li>Ateliers sensoriels adaptés</li>
+                            <li>Activités d'expression créative</li>
+                            <li>Accompagnement à l'autonomie</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="target-card">
+                    <div class="target-icon">🏠</div>
+                    <div class="target-name">FJT & Résidences Sociales</div>
+                    <div class="target-description">
+                        Foyers de jeunes travailleurs et hébergements sociaux
+                    </div>
+                    <div class="target-needs">
+                        <div class="target-needs-title">Nos interventions :</div>
+                        <ul style="margin-left: 20px;">
+                            <li>Formation insertion professionnelle</li>
+                            <li>Ateliers gestion du budget</li>
+                            <li>Développement des soft skills</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="target-card">
+                    <div class="target-icon">👶</div>
+                    <div class="target-name">MECS</div>
+                    <div class="target-description">
+                        Maisons d'enfants à caractère social
+                    </div>
+                    <div class="target-needs">
+                        <div class="target-needs-title">Nos interventions :</div>
+                        <ul style="margin-left: 20px;">
+                            <li>Soutien scolaire et orientation</li>
+                            <li>Ateliers découverte métiers</li>
+                            <li>Activités de cohésion de groupe</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="target-card">
+                    <div class="target-icon">👩</div>
+                    <div class="target-name">Foyers Mères-Enfants</div>
+                    <div class="target-description">
+                        Structures d'accueil pour femmes en difficulté avec enfants
+                    </div>
+                    <div class="target-needs">
+                        <div class="target-needs-title">Nos interventions :</div>
+                        <ul style="margin-left: 20px;">
+                            <li>Ateliers parentalité positive</li>
+                            <li>Formation professionnelle adaptée</li>
+                            <li>Reconstruction de l'estime de soi</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="target-card">
+                    <div class="target-icon">🎯</div>
+                    <div class="target-name">Centres Sociaux</div>
+                    <div class="target-description">
+                        Espaces de proximité et d'animation sociale
+                    </div>
+                    <div class="target-needs">
+                        <div class="target-needs-title">Nos interventions :</div>
+                        <ul style="margin-left: 20px;">
+                            <li>Actions de prévention jeunesse</li>
+                            <li>Ateliers intergénérationnels</li>
+                            <li>Événements communautaires</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 5: Notre Méthodologie -->
+        <div class="slide">
+            <h2>Notre Méthodologie d'Intervention</h2>
+            
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">Analyse des Besoins</div>
+                        <p>Rencontre avec les équipes, évaluation des besoins spécifiques, 
+                        co-construction du projet d'intervention adapté.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title">Conception sur Mesure</div>
+                        <p>Développement d'ateliers personnalisés, sélection des intervenants 
+                        qualifiés, préparation du matériel pédagogique.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title">Intervention</div>
+                        <p>Animation des ateliers, accompagnement bienveillant, 
+                        adaptation en temps réel aux besoins du groupe.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-title">Suivi & Évaluation</div>
+                        <p>Bilan avec les équipes, mesure d'impact, 
+                        ajustements pour les interventions futures.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 15px; margin-top: 40px;">
+                <h3 style="color: #0D47A1; margin-top: 0;">Nos Engagements Qualité</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 10px 0;">✅ Intervenants formés et expérimentés</li>
+                    <li style="padding: 10px 0;">✅ Approche respectueuse et bienveillante</li>
+                    <li style="padding: 10px 0;">✅ Adaptation aux publics spécifiques</li>
+                    <li style="padding: 10px 0;">✅ Confidentialité et éthique professionnelle</li>
+                    <li style="padding: 10px 0;">✅ Évaluation continue de nos actions</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Slide 6: Contact -->
+        <div class="slide">
+            <div class="cta-section">
+                <h2 class="cta-title" style="color: white; border: none;">Construisons Ensemble</h2>
+                <p class="cta-text">
+                    Vous souhaitez mettre en place des actions au sein de votre structure ?<br>
+                    Contactez-nous pour co-construire un projet adapté à vos besoins.
+                </p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-label">Téléphone</div>
+                        <div class="contact-value">06 14 87 17 06</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">collectifhem@gmail.com</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Réseaux</div>
+                        <div class="contact-value">@collectifhem</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; padding: 30px; background: #f8f9fa; border-radius: 15px;">
+                <p style="text-align: center; margin-top: 20px;">
+                    <strong>Prochains ateliers disponibles dès septembre 2025</strong>
+                </p>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
