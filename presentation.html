@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOL Ministries - Présentation Nouveaux Arrivants</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .presentation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .slide {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards;
+        }
+        
+        .slide:nth-child(1) { animation-delay: 0.1s; }
+        .slide:nth-child(2) { animation-delay: 0.2s; }
+        .slide:nth-child(3) { animation-delay: 0.3s; }
+        .slide:nth-child(4) { animation-delay: 0.4s; }
+        .slide:nth-child(5) { animation-delay: 0.5s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .title-slide {
+            background: linear-gradient(135deg, #0D47A1, #00968B);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .title-slide::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,214,0,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.4em;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .welcome-text {
+            font-size: 1.2em;
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+        }
+        
+        h2 {
+            color: #0D47A1;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #FFD600;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        h3 {
+            color: #00968B;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        /* Branches Grid */
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .branch-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            border-top: 5px solid;
+            text-align: center;
+        }
+        
+        .branch-card:nth-child(1) { border-top-color: #0D47A1; }
+        .branch-card:nth-child(2) { border-top-color: #00968B; }
+        .branch-card:nth-child(3) { border-top-color: #FFD600; }
+        .branch-card:nth-child(4) { border-top-color: #D50057; }
+        
+        .branch-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .branch-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .branch-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #0D47A1;
+            margin-bottom: 15px;
+        }
+        
+        .branch-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Detailed Branch Section */
+        .branch-detail {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .branch-detail::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #0D47A1, #00968B, #FFD600);
+        }
+        
+        .branch-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 25px;
+        }
+        
+        .detail-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #0D47A1, #00968B);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            flex-shrink: 0;
+        }
+        
+        .detail-title {
+            font-size: 1.8em;
+            color: #0D47A1;
+            font-weight: bold;
+        }
+        
+        .detail-subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+        
+        .mission-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 4px solid #00968B;
+        }
+        
+        .mission-box h4 {
+            color: #0D47A1;
+            margin-bottom: 15px;
+        }
+        
+        .objectives-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        
+        .objectives-list li {
+            padding: 15px;
+            background: white;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .objectives-list li::before {
+            content: '✓';
+            width: 30px;
+            height: 30px;
+            background: #FFD600;
+            color: #0D47A1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        /* Support Poles */
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .support-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 3px solid #0D47A1;
+            transition: all 0.3s ease;
+        }
+        
+        .support-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .support-title {
+            font-weight: bold;
+            color: #0D47A1;
+            margin-bottom: 8px;
+        }
+        
+        .support-responsible {
+            color: #00968B;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+        
+        .support-description {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #0D47A1, #00968B);
+            color: white;
+            padding: 60px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        .cta-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-text {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            h2 {
+                font-size: 2em;
+            }
+            
+            .branches-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .branch-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        
+        <!-- Slide 1: Accueil -->
+        <div class="slide title-slide">
+            <h1>BIENVENUE CHEZ KOL MINISTRIES</h1>
+            <p class="subtitle">Au service du Roi de Gloire</p>
+            <div class="welcome-text">
+                <p><strong>Félicitations !</strong> Vous rejoignez une équipe passionnée et engagée 
+                pour voir les territoires conquis et les vies transformées par la puissance de Dieu.</p>
+            </div>
+        </div>
+        
+        <!-- Slide 2: Qui sommes-nous ? -->
+        <div class="slide">
+            <h2>Qui sommes-nous ?</h2>
+            <p style="font-size: 1.3em; line-height: 1.8; margin-bottom: 30px;">
+                <strong>KOL Ministries</strong> est une organisation ministérielle dynamique avec une vision claire : 
+                conquérir massivement les territoires par l'onction de miracles et de guérison, 
+                tout en développant une approche multidimensionnelle pour toucher toutes les sphères de la société.
+            </p>
+            
+            <div class="branches-grid">
+                <div class="branch-card">
+                    <div class="branch-icon">🏥</div>
+                    <div class="branch-title">CHEM</div>
+                    <div class="branch-description">Collectif Hôpital en Mouvement</div>
+                </div>
+                
+                <div class="branch-card">
+                    <div class="branch-icon">✨</div>
+                    <div class="branch-title">CDS</div>
+                    <div class="branch-description">Conscience du Surnaturel</div>
+                </div>
+                
+                <div class="branch-card">
+                    <div class="branch-icon">📚</div>
+                    <div class="branch-title">École de la Bergerie</div>
+                    <div class="branch-description">Formation & Discipulat</div>
+                </div>
+                
+                <div class="branch-card">
+                    <div class="branch-icon">🌍</div>
+                    <div class="branch-title">Missions</div>
+                    <div class="branch-description">Évangélisation & Action Sociale</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 3: Nos Branches Détaillées -->
+        <div class="slide">
+            <h2>Nos 4 Branches Ministérielles</h2>
+            
+            <!-- CHEM -->
+            <div class="branch-detail">
+                <div class="branch-header">
+                    <div class="detail-icon">🏥</div>
+                    <div>
+                        <div class="detail-title">CHEM - Collectif Hôpital en Mouvement</div>
+                        <div class="detail-subtitle">Responsables : Ama & Yane</div>
+                    </div>
+                </div>
+                
+                <div class="mission-box">
+                    <h4>Notre Mission</h4>
+                    <p>Organiser et structurer l'approche d'évangélisation pour maximiser l'impact 
+                    et atteindre le maximum d'âmes. Nous développons des stratégies innovantes 
+                    pour apporter la guérison et l'espoir là où les besoins sont les plus grands.</p>
+                </div>
+                
+                <p><strong>Activités principales :</strong></p>
+                <ul class="objectives-list">
+                    <li>Organisation stratégique des campagnes d'évangélisation</li>
+                    <li>Coordination avec le Call Center de Guérison (Dorcas)</li>
+                    <li>Visites à domicile et suivi personnalisé</li>
+                </ul>
+            </div>
+            
+            <!-- CDS -->
+            <div class="branch-detail">
+                <div class="branch-header">
+                    <div class="detail-icon">✨</div>
+                    <div>
+                        <div class="detail-title">CDS - Conscience du Surnaturel</div>
+                        <div class="detail-subtitle">Plateforme d'éveil spirituel</div>
+                    </div>
+                </div>
+                
+                <div class="mission-box">
+                    <h4>Notre Vision</h4>
+                    <p>Créer un monde où la vie de l'Esprit est démystifiée et comprise, 
+                    où la spiritualité chrétienne est reconnue comme un pilier pour la transformation 
+                    de l'existence humaine en vue d'un épanouissement terrestre complet.</p>
+                </div>
+                
+                <div class="mission-box">
+                    <h4>Notre Mission</h4>
+                    <p>Réveiller, éduquer, transformer et accompagner les individus dans leur parcours spirituel 
+                    en mettant en lumière les principes de la spiritualité chrétienne. 
+                    Emmener la foule connectée à développer la conscience que la spiritualité christique 
+                    change l'existence d'un homme pour son parfait épanouissement terrestre.</p>
+                </div>
+                
+                <p><strong>Objectifs clés :</strong></p>
+                <ul class="objectives-list">
+                    <li>Éduquer sur les enseignements de la spiritualité chrétienne</li>
+                    <li>Fournir des ressources et expériences surnaturelles significatives</li>
+                    <li>Créer une communauté en ligne engagée dans sa transformation</li>
+                </ul>
+            </div>
+            
+            <!-- École de la Bergerie -->
+            <div class="branch-detail">
+                <div class="branch-header">
+                    <div class="detail-icon">📚</div>
+                    <div>
+                        <div class="detail-title">L'École de la Bergerie</div>
+                        <div class="detail-subtitle">Centre de formation spirituelle</div>
+                    </div>
+                </div>
+                
+                <div class="mission-box">
+                    <h4>Notre Objectif</h4>
+                    <p>Former des disciples équipés pour porter la vision et faire des disciples à leur tour. 
+                    Nous voulons multiplier les ouvriers pour la moisson à travers un enseignement 
+                    biblique solide et pratique.</p>
+                </div>
+                
+                <p><strong>Programmes proposés :</strong></p>
+                <ul class="objectives-list">
+                    <li>Formations pour découvrir et approfondir la Bible</li>
+                    <li>Contenus digitaux et vidéos d'édification</li>
+                    <li>Parcours de discipulat et mentorat personnalisé</li>
+                </ul>
+            </div>
+            
+            <!-- Missions d'Évangélisation -->
+            <div class="branch-detail">
+                <div class="branch-header">
+                    <div class="detail-icon">🌍</div>
+                    <div>
+                        <div class="detail-title">Missions d'Évangélisation</div>
+                        <div class="detail-subtitle">Actions terrain et expansion</div>
+                    </div>
+                </div>
+                
+                <div class="mission-box">
+                    <h4>Trois Axes d'Action</h4>
+                    
+                    <p><strong>1. Évangélisation de rue :</strong><br>
+                    Sorties dans les espaces publics, centres-villes et points stratégiques</p>
+                    
+                    <p style="margin-top: 15px;"><strong>2. Action sociale (Collectif HEM) :</strong><br>
+                    Interventions en EHPAD, foyers médicalisés, MECS, projet théâtral "Terrasse Café"</p>
+                    
+                    <p style="margin-top: 15px;"><strong>3. Cellule internationale (Audrey) :</strong><br>
+                    Expansion au Cameroun et développement de partenariats internationaux</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 4: Structure Support -->
+        <div class="slide">
+            <h2>Notre Équipe Support</h2>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">
+                Pour soutenir nos 4 branches ministérielles, KOL Ministries s'appuie sur 
+                une structure administrative solide composée de 8 pôles support :
+            </p>
+            
+            <div class="support-grid">
+                <div class="support-card">
+                    <div class="support-title">📋 Supervision Générale</div>
+                    <div class="support-responsible">Dorcas</div>
+                    <div class="support-description">Coordination globale et supervision</div>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-title">💰 Finance</div>
+                    <div class="support-responsible">Myramis</div>
+                    <div class="support-description">Gestion financière et budget</div>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-title">📝 Secrétariat & RH</div>
+                    <div class="support-responsible">Mirlène</div>
+                    <div class="support-description">Administration et ressources humaines</div>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-title">🌐 Relations Externes</div>
+                    <div class="support-responsible"></div>
+                    <div class="support-description">Partenariats ministériels</div>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-title">📱 Communication</div>
+                    <div class="support-responsible">Manuela</div>
+                    <div class="support-description">Réseaux sociaux et médias</div>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-title">🙏 Dynamique Spirituelle</div>
+                    <div class="support-responsible">Monica & Sandra</div>
+                    <div class="support-description">Prière et intercession</div>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-title">📊 Projets</div>
+                    <div class="support-responsible">Cynthia</div>
+                    <div class="support-description">Gestion de projets</div>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-title">🌍 International</div>
+                    <div class="support-responsible">Audrey</div>
+                    <div class="support-description">Expansion mondiale</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 5: Intégration -->
+        <div class="slide">
+            <div class="cta-section">
+                <h2 class="cta-title" style="color: white; border: none;">Votre Intégration chez KOL</h2>
+                <p class="cta-text">
+                    Chaque membre de l'équipe joue un rôle crucial dans l'accomplissement de notre vision.<br>
+                    Votre responsable de pôle vous accompagnera dans votre intégration.
+                </p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <strong>Supervision Générale</strong><br>
+                        Dorcas
+                    </div>
+                    <div class="contact-item">
+                        <strong>Contact Principal</strong><br>
+                        06 14 87 17 06
+                    </div>
+                    <div class="contact-item">
+                        <strong>Email</strong><br>
+                        kolministries@gmail.com
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
+                <h3 style="color: #0D47A1;">Notre Vision Commune</h3>
+                <p style="font-size: 1.2em; margin-top: 20px; font-style: italic;">
+                    "Nous voyons le territoire Français et les extrémités de la terre gagnés à Christ.<br>
+                    Notre désir est de conquérir massivement les territoires par l'onction de miracles et de guérison."
+                </p>
+                <p style="margin-top: 30px; font-weight: bold; color: #00968B;">
+                    Bienvenue dans la famille KOL Ministries !
+                </p>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
