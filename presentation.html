@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOL Ministries - Présentation Nouveaux Arrivants</title>
+    <title>KOL Ministries - Présentation pour Nouveaux Arrivants</title>
     <style>
         * {
             margin: 0;
@@ -40,6 +40,7 @@
         .slide:nth-child(3) { animation-delay: 0.3s; }
         .slide:nth-child(4) { animation-delay: 0.4s; }
         .slide:nth-child(5) { animation-delay: 0.5s; }
+        .slide:nth-child(6) { animation-delay: 0.6s; }
         
         @keyframes fadeInUp {
             to {
@@ -77,7 +78,7 @@
         }
         
         h1 {
-            font-size: 3.5em;
+            font-size: 4em;
             margin-bottom: 20px;
             font-weight: 800;
             position: relative;
@@ -91,17 +92,6 @@
             margin-bottom: 30px;
             position: relative;
             z-index: 1;
-        }
-        
-        .welcome-text {
-            font-size: 1.2em;
-            margin-top: 30px;
-            padding: 25px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
-            position: relative;
-            z-index: 1;
-            backdrop-filter: blur(10px);
         }
         
         h2 {
@@ -120,7 +110,167 @@
             margin-bottom: 20px;
         }
         
-        /* Branches Grid */
+        /* Fondatrice Section */
+        .founder-section {
+            background: linear-gradient(135deg, #f5f7fa, #e9ecef);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .founder-photo {
+            width: 200px;
+            height: 200px;
+            background: white;
+            border-radius: 50%;
+            border: 5px solid #FFD600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            flex-shrink: 0;
+        }
+        
+        .founder-photo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .photo-placeholder {
+            color: #999;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .founder-info {
+            flex-grow: 1;
+        }
+        
+        .founder-name {
+            font-size: 2em;
+            color: #0D47A1;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .founder-title {
+            font-size: 1.3em;
+            color: #00968B;
+            margin-bottom: 20px;
+        }
+        
+        /* KOL Explanation */
+        .kol-explanation {
+            background: linear-gradient(135deg, #FFD600, #FFA000);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(255,214,0,0.3);
+        }
+        
+        .kol-explanation h4 {
+            color: #0D47A1;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        
+        .kol-meaning {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .meaning-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .meaning-title {
+            font-weight: bold;
+            color: #0D47A1;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        /* Prophétie */
+        .prophecy-box {
+            background: linear-gradient(135deg, #0D47A1, #00968B);
+            color: white;
+            padding: 35px;
+            border-radius: 15px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .prophecy-box::before {
+            content: '🔥';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 60px;
+            opacity: 0.2;
+        }
+        
+        .prophecy-box h4 {
+            color: #FFD600;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+        
+        .prophecy-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .prophecy-box li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .prophecy-box li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: #FFD600;
+            font-size: 1.2em;
+        }
+        
+        /* Verse Box */
+        .verse-box {
+            background: #f0f4ff;
+            border-left: 5px solid #0D47A1;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+            font-style: italic;
+        }
+        
+        .verse-reference {
+            font-weight: bold;
+            color: #0D47A1;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-style: normal;
+        }
+        
+        .verse-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        /* Branch Cards */
         .branches-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -168,12 +318,7 @@
             margin-bottom: 15px;
         }
         
-        .branch-description {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        /* Detailed Branch Section */
+        /* Branch Details */
         .branch-detail {
             background: white;
             border-radius: 20px;
@@ -239,6 +384,27 @@
             margin-bottom: 15px;
         }
         
+        /* Support Grid */
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .support-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 3px solid #0D47A1;
+            transition: all 0.3s ease;
+        }
+        
+        .support-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
         .objectives-list {
             list-style: none;
             padding: 0;
@@ -270,98 +436,30 @@
             flex-shrink: 0;
         }
         
-        /* Support Poles */
-        .support-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .support-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 3px solid #0D47A1;
-            transition: all 0.3s ease;
-        }
-        
-        .support-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .support-title {
-            font-weight: bold;
-            color: #0D47A1;
-            margin-bottom: 8px;
-        }
-        
-        .support-responsible {
-            color: #00968B;
-            font-size: 0.95em;
-            margin-bottom: 10px;
-        }
-        
-        .support-description {
-            color: #666;
-            font-size: 0.9em;
-            line-height: 1.5;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #0D47A1, #00968B);
+        .highlight-supernatural {
+            background: linear-gradient(135deg, #D50057, #7B1FA2);
             color: white;
-            padding: 60px;
+            padding: 40px;
             border-radius: 20px;
             text-align: center;
-            margin-top: 40px;
+            margin: 30px 0;
             position: relative;
             overflow: hidden;
         }
         
-        .cta-section::before {
-            content: '';
+        .highlight-supernatural::before {
+            content: '✨';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
+            top: 20px;
+            right: 30px;
+            font-size: 60px;
+            opacity: 0.3;
+            animation: pulse 2s infinite;
         }
         
-        .cta-title {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta-text {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .contact-item {
-            background: rgba(255,255,255,0.1);
-            padding: 20px 30px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
         }
         
         @media (max-width: 768px) {
@@ -377,6 +475,11 @@
                 font-size: 2em;
             }
             
+            .founder-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
             .branches-grid {
                 grid-template-columns: 1fr;
             }
@@ -384,68 +487,155 @@
             .support-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .branch-header {
-                flex-direction: column;
-                text-align: center;
-            }
         }
     </style>
 </head>
 <body>
     <div class="presentation-container">
         
-        <!-- Slide 1: Accueil -->
+        <!-- Slide 1: Titre -->
         <div class="slide title-slide">
-            <h1>BIENVENUE CHEZ KOL MINISTRIES</h1>
-            <p class="subtitle">Au service du Roi de Gloire</p>
-            <div class="welcome-text">
-                <p><strong>Félicitations !</strong> Vous rejoignez une équipe passionnée et engagée 
-                pour voir les territoires conquis et les vies transformées par la puissance de Dieu.</p>
+            <h1>KOL MINISTRIES</h1>
+            <p class="subtitle">"La Voix" qui influence des millions</p>
+            <div style="margin-top: 40px; font-size: 1.3em; position: relative; z-index: 1;">
+                <p><strong>Jean 1:23</strong></p>
+                <p style="margin-top: 15px; font-style: italic;">
+                    "Je suis la voix de celui qui crie dans le désert"
+                </p>
             </div>
         </div>
         
-        <!-- Slide 2: Qui sommes-nous ? -->
+        <!-- Slide 2: L'ADN de KOL -->
         <div class="slide">
-            <h2>Qui sommes-nous ?</h2>
-            <p style="font-size: 1.3em; line-height: 1.8; margin-bottom: 30px;">
-                <strong>KOL Ministries</strong> est une organisation ministérielle dynamique avec une vision claire : 
-                conquérir massivement les territoires par l'onction de miracles et de guérison, 
-                tout en développant une approche multidimensionnelle pour toucher toutes les sphères de la société.
-            </p>
+            <h2>L'ADN Spirituel de KOL</h2>
+            
+            <div class="founder-section">
+                <div class="founder-photo">
+                    <div class="photo-placeholder">
+                        [Photo de<br>Manue Tchanque]
+                    </div>
+                </div>
+                <div class="founder-info">
+                    <div class="founder-name">Manue Tchanque</div>
+                    <div class="founder-title">Visionnaire et Fondatrice de KOL Ministries</div>
+                    <p>Porteuse de la vision prophétique pour l'évangélisation de masse par le surnaturel, 
+                    mandatée pour révéler la puissance tangible de l'Évangile de Christ.</p>
+                </div>
+            </div>
+            
+            <div class="kol-explanation">
+                <h4>Pourquoi "KOL" ?</h4>
+                <div class="kol-meaning">
+                    <div class="meaning-card">
+                        <div class="meaning-title">🔊 Signification Hébraïque</div>
+                        <p><strong>KOL = QowL</strong><br>
+                        "La Voix" en hébreu<br>
+                        Référence prophétique à Jean 1:23</p>
+                    </div>
+                    <div class="meaning-card">
+                        <div class="meaning-title">👥 Key Opinion Leader</div>
+                        <p>Personnes pouvant influencer des millions par leur prise de position 
+                        et leurs opinions dans le Royaume</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="prophecy-box">
+                <h4>La Prophétie de KOL</h4>
+                <ul>
+                    <li>Des millions de personnes intégreront le mindset, la pensée du Royaume des Cieux 
+                    au travers des mélodies du Saint-Esprit</li>
+                    <li>Les cœurs asséchés par la mort sous toutes ses formes rencontreront 
+                    les fleuves de vie, La Personne du Saint-Esprit</li>
+                </ul>
+            </div>
+            
+            <div class="verse-box">
+                <div class="verse-reference">Vision Fondatrice</div>
+                <div class="verse-text">
+                    Révéler à tous la tangibilité et la puissance de l'évangile de Christ 
+                    qui est la spiritualité la plus puissante. Démonstration de la tangibilité 
+                    du Ciel sur la terre par des cascades de signes, miracles et prodiges.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 3: La Vision du Surnaturel -->
+        <div class="slide">
+            <h2>Notre Mission Centrale</h2>
+            
+            <div class="highlight-supernatural">
+                <h3 style="color: white; margin-top: 0; font-size: 2.2em;">
+                    ÉVANGÉLISATION DE MASSE<br>PAR LE SURNATUREL
+                </h3>
+                <p style="font-size: 1.3em; margin-top: 20px;">
+                    Conquérir massivement les territoires par l'onction de miracles 
+                    et de guérison instantanée
+                </p>
+            </div>
+            
+            <div class="verse-box">
+                <div class="verse-reference">Marc 16:18</div>
+                <div class="verse-text">
+                    "En mon nom... ils imposeront les mains aux malades et les malades seront guéris."
+                </div>
+            </div>
+            
+            <h3>Notre Mandat Divin</h3>
+            <div class="mission-box">
+                <p><strong>Mandataire :</strong> Le Saint-Esprit</p>
+                <p style="margin-top: 15px;"><strong>Mission :</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Ramener les cœurs à l'intimité avec Dieu Esprit, le Saint-Esprit</li>
+                    <li>Initiation au surnaturel de Dieu qui impacte puissamment la terre</li>
+                    <li>Engendrer une armée de lumières nés de la fusion avec le Saint-Esprit</li>
+                </ul>
+            </div>
+            
+            <h3>Notre Cible</h3>
+            <div class="objectives-list">
+                <li>Les personnes dans le monde portées sur les fausses spiritualités 
+                (arts chinois, yoga, bouddhisme, celtiques...)</li>
+                <li>Les personnes consciemment connectées au monde spirituel mais à la mauvaise source 
+                (magie, divination, sorcellerie, ésotérisme)</li>
+                <li>Les enfants de Dieu qui aspirent à une spiritualité plus puissante 
+                et à vivre réellement avec le Saint-Esprit</li>
+            </div>
+        </div>
+        
+        <!-- Slide 4: Les 4 Branches -->
+        <div class="slide">
+            <h2>Nos 4 Branches Ministérielles</h2>
             
             <div class="branches-grid">
                 <div class="branch-card">
                     <div class="branch-icon">🏥</div>
                     <div class="branch-title">CHEM</div>
-                    <div class="branch-description">Collectif Hôpital en Mouvement</div>
+                    <p>Collectif Hôpital<br>en Mouvement</p>
                 </div>
                 
                 <div class="branch-card">
                     <div class="branch-icon">✨</div>
                     <div class="branch-title">CDS</div>
-                    <div class="branch-description">Conscience du Surnaturel</div>
+                    <p>Conscience<br>du Surnaturel</p>
                 </div>
                 
                 <div class="branch-card">
                     <div class="branch-icon">📚</div>
                     <div class="branch-title">École de la Bergerie</div>
-                    <div class="branch-description">Formation & Discipulat</div>
+                    <p>Formation<br>& Discipulat</p>
                 </div>
                 
                 <div class="branch-card">
                     <div class="branch-icon">🌍</div>
                     <div class="branch-title">Missions</div>
-                    <div class="branch-description">Évangélisation & Action Sociale</div>
+                    <p>Évangélisation<br>& Action Sociale</p>
                 </div>
             </div>
-        </div>
-        
-        <!-- Slide 3: Nos Branches Détaillées -->
-        <div class="slide">
-            <h2>Nos 4 Branches Ministérielles</h2>
             
-            <!-- CHEM -->
+            <div style="height: 60px;"></div>
+            
+            <!-- CHEM Détail -->
             <div class="branch-detail">
                 <div class="branch-header">
                     <div class="detail-icon">🏥</div>
@@ -455,22 +645,38 @@
                     </div>
                 </div>
                 
-                <div class="mission-box">
-                    <h4>Notre Mission</h4>
-                    <p>Organiser et structurer l'approche d'évangélisation pour maximiser l'impact 
-                    et atteindre le maximum d'âmes. Nous développons des stratégies innovantes 
-                    pour apporter la guérison et l'espoir là où les besoins sont les plus grands.</p>
+                <div class="verse-box">
+                    <div class="verse-reference">Actes 10:38</div>
+                    <div class="verse-text">
+                        "Vous savez comment Dieu a oint du Saint-Esprit et de force Jésus de Nazareth, 
+                        qui allait de lieu en lieu faisant du bien et guérissant tous ceux qui étaient 
+                        sous l'empire du diable, car Dieu était avec lui."
+                    </div>
                 </div>
                 
-                <p><strong>Activités principales :</strong></p>
+                <div class="mission-box">
+                    <h4>Notre Identité</h4>
+                    <p>Des chrétiens amoureux de Dieu qui croient que Dieu agit encore aujourd'hui 
+                    et qui ont pour mission de révéler Dieu au grand nombre par la démonstration 
+                    de son amour à travers toutes sortes de miracles, guérisons, libérations et prodiges.</p>
+                </div>
+                
+                <h4 style="margin-top: 30px; color: #0D47A1;">Actions sur deux volets :</h4>
                 <ul class="objectives-list">
-                    <li>Organisation stratégique des campagnes d'évangélisation</li>
-                    <li>Coordination avec le Call Center de Guérison (Dorcas)</li>
-                    <li>Visites à domicile et suivi personnalisé</li>
+                    <li><strong>Espaces publics :</strong> Sorties dans les rues, centres-villes 
+                    et points névralgiques des villes</li>
+                    <li><strong>Événements :</strong> Transformation de locaux en camps de guérison 
+                    et de miracles (bi-mensuels)</li>
                 </ul>
+                
+                <div style="background: #fff3cd; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #ffc107;">
+                    <h4 style="color: #856404; margin-bottom: 10px;">📞 Call Center de Guérison (Dorcas)</h4>
+                    <p>Service téléphonique rattaché à CHEM pour les demandes de prière à distance. 
+                    Les appelants peuvent demander des visites à domicile pour un accompagnement personnalisé.</p>
+                </div>
             </div>
             
-            <!-- CDS -->
+            <!-- CDS Détail -->
             <div class="branch-detail">
                 <div class="branch-header">
                     <div class="detail-icon">✨</div>
@@ -483,26 +689,29 @@
                 <div class="mission-box">
                     <h4>Notre Vision</h4>
                     <p>Créer un monde où la vie de l'Esprit est démystifiée et comprise, 
-                    où la spiritualité chrétienne est reconnue comme un pilier pour la transformation 
-                    de l'existence humaine en vue d'un épanouissement terrestre complet.</p>
+                    où la spiritualité chrétienne est reconnue comme un pilier pour 
+                    la transformation de l'existence humaine en vue d'un épanouissement terrestre complet.</p>
                 </div>
                 
                 <div class="mission-box">
                     <h4>Notre Mission</h4>
-                    <p>Réveiller, éduquer, transformer et accompagner les individus dans leur parcours spirituel 
-                    en mettant en lumière les principes de la spiritualité chrétienne. 
+                    <p>Réveiller, éduquer, transformer et accompagner les individus dans leur parcours 
+                    spirituel en mettant en lumière les principes de la spiritualité chrétienne. 
                     Emmener la foule connectée à développer la conscience que la spiritualité christique 
                     change l'existence d'un homme pour son parfait épanouissement terrestre.</p>
                 </div>
                 
-                <p><strong>Objectifs clés :</strong></p>
+                <h4 style="margin-top: 30px; color: #0D47A1;">Objectifs SMART :</h4>
                 <ul class="objectives-list">
-                    <li>Éduquer sur les enseignements de la spiritualité chrétienne</li>
-                    <li>Fournir des ressources et expériences surnaturelles significatives</li>
-                    <li>Créer une communauté en ligne engagée dans sa transformation</li>
+                    <li>Éduquer la foule connectée sur les enseignements de la spiritualité chrétienne</li>
+                    <li>Fournir des ressources et expériences inspirantes liées au surnaturel</li>
+                    <li>Créer une communauté en ligne engagée dans sa transformation spirituelle</li>
                 </ul>
             </div>
-            
+        </div>
+        
+        <!-- Slide 5: Autres branches et structure -->
+        <div class="slide">
             <!-- École de la Bergerie -->
             <div class="branch-detail">
                 <div class="branch-header">
@@ -514,13 +723,10 @@
                 </div>
                 
                 <div class="mission-box">
-                    <h4>Notre Objectif</h4>
                     <p>Former des disciples équipés pour porter la vision et faire des disciples à leur tour. 
-                    Nous voulons multiplier les ouvriers pour la moisson à travers un enseignement 
-                    biblique solide et pratique.</p>
+                    Multiplier les ouvriers pour la moisson à travers un enseignement biblique solide.</p>
                 </div>
                 
-                <p><strong>Programmes proposés :</strong></p>
                 <ul class="objectives-list">
                     <li>Formations pour découvrir et approfondir la Bible</li>
                     <li>Contenus digitaux et vidéos d'édification</li>
@@ -528,7 +734,7 @@
                 </ul>
             </div>
             
-            <!-- Missions d'Évangélisation -->
+            <!-- Missions -->
             <div class="branch-detail">
                 <div class="branch-header">
                     <div class="detail-icon">🌍</div>
@@ -539,113 +745,119 @@
                 </div>
                 
                 <div class="mission-box">
-                    <h4>Trois Axes d'Action</h4>
-                    
-                    <p><strong>1. Évangélisation de rue :</strong><br>
-                    Sorties dans les espaces publics, centres-villes et points stratégiques</p>
-                    
-                    <p style="margin-top: 15px;"><strong>2. Action sociale (Collectif HEM) :</strong><br>
-                    Interventions en EHPAD, foyers médicalisés, MECS, projet théâtral "Terrasse Café"</p>
-                    
-                    <p style="margin-top: 15px;"><strong>3. Cellule internationale (Audrey) :</strong><br>
-                    Expansion au Cameroun et développement de partenariats internationaux</p>
+                    <h4>Trois axes d'action</h4>
+                    <p><strong>1. Évangélisation de rue :</strong> Actions directes dans l'espace public</p>
+                    <p style="margin-top: 10px;"><strong>2. Action sociale (Collectif HEM) :</strong> 
+                    EHPAD, foyers, projet "Terrasse Café"</p>
+                    <p style="margin-top: 10px;"><strong>3. Cellule internationale (Audrey) :</strong> 
+                    Expansion au Cameroun et partenariats mondiaux</p>
                 </div>
             </div>
-        </div>
-        
-        <!-- Slide 4: Structure Support -->
-        <div class="slide">
-            <h2>Notre Équipe Support</h2>
-            <p style="font-size: 1.2em; margin-bottom: 30px;">
-                Pour soutenir nos 4 branches ministérielles, KOL Ministries s'appuie sur 
-                une structure administrative solide composée de 8 pôles support :
-            </p>
             
+            <h3>Structure Support</h3>
             <div class="support-grid">
                 <div class="support-card">
-                    <div class="support-title">📋 Supervision Générale</div>
-                    <div class="support-responsible">Dorcas</div>
-                    <div class="support-description">Coordination globale et supervision</div>
+                    <div style="font-weight: bold; color: #0D47A1;">📋 Supervision Générale</div>
+                    <div style="color: #00968B;">Dorcas</div>
                 </div>
                 
                 <div class="support-card">
-                    <div class="support-title">💰 Finance</div>
-                    <div class="support-responsible">Myramis</div>
-                    <div class="support-description">Gestion financière et budget</div>
+                    <div style="font-weight: bold; color: #0D47A1;">💰 Finance</div>
+                    <div style="color: #00968B;">Myramis</div>
                 </div>
                 
                 <div class="support-card">
-                    <div class="support-title">📝 Secrétariat & RH</div>
-                    <div class="support-responsible">Mirlène</div>
-                    <div class="support-description">Administration et ressources humaines</div>
+                    <div style="font-weight: bold; color: #0D47A1;">📝 Secrétariat & RH</div>
+                    <div style="color: #00968B;">Mirlène</div>
                 </div>
                 
                 <div class="support-card">
-                    <div class="support-title">🌐 Relations Externes</div>
-                    <div class="support-responsible"></div>
-                    <div class="support-description">Partenariats ministériels</div>
+                    <div style="font-weight: bold; color: #0D47A1;">🌐 Relations Externes</div>
+                    <div style="color: #00968B;">Stella</div>
                 </div>
                 
                 <div class="support-card">
-                    <div class="support-title">📱 Communication</div>
-                    <div class="support-responsible">Manuela</div>
-                    <div class="support-description">Réseaux sociaux et médias</div>
+                    <div style="font-weight: bold; color: #0D47A1;">📱 Communication</div>
+                    <div style="color: #00968B;">Manuela</div>
                 </div>
                 
                 <div class="support-card">
-                    <div class="support-title">🙏 Dynamique Spirituelle</div>
-                    <div class="support-responsible">Monica & Sandra</div>
-                    <div class="support-description">Prière et intercession</div>
+                    <div style="font-weight: bold; color: #0D47A1;">🙏 Dynamique Spirituelle</div>
+                    <div style="color: #00968B;">Monica & Sandra</div>
                 </div>
                 
                 <div class="support-card">
-                    <div class="support-title">📊 Projets</div>
-                    <div class="support-responsible">Cynthia</div>
-                    <div class="support-description">Gestion de projets</div>
+                    <div style="font-weight: bold; color: #0D47A1;">📊 Projets</div>
+                    <div style="color: #00968B;">Cynthia</div>
                 </div>
                 
                 <div class="support-card">
-                    <div class="support-title">🌍 International</div>
-                    <div class="support-responsible">Audrey</div>
-                    <div class="support-description">Expansion mondiale</div>
+                    <div style="font-weight: bold; color: #0D47A1;">🌍 International</div>
+                    <div style="color: #00968B;">Audrey</div>
                 </div>
             </div>
         </div>
         
-        <!-- Slide 5: Intégration -->
+        <!-- Slide 6: Intégration finale -->
         <div class="slide">
-            <div class="cta-section">
-                <h2 class="cta-title" style="color: white; border: none;">Votre Intégration chez KOL</h2>
-                <p class="cta-text">
-                    Chaque membre de l'équipe joue un rôle crucial dans l'accomplissement de notre vision.<br>
-                    Votre responsable de pôle vous accompagnera dans votre intégration.
+            <h2>Bienvenue dans la Famille KOL !</h2>
+            
+            <div class="highlight-supernatural" style="background: linear-gradient(135deg, #0D47A1, #00968B);">
+                <h3 style="color: white; margin-top: 0;">Vous faites maintenant partie de la Vision</h3>
+                <p style="font-size: 1.2em; margin-top: 20px;">
+                    Ensemble, nous sommes la voix qui influence des millions<br>
+                    pour révéler la puissance tangible de l'Évangile
                 </p>
-                
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <strong>Supervision Générale</strong><br>
-                        Dorcas
-                    </div>
-                    <div class="contact-item">
-                        <strong>Contact Principal</strong><br>
-                        06 14 87 17 06
-                    </div>
-                    <div class="contact-item">
-                        <strong>Email</strong><br>
-                        kolministries@gmail.com
-                    </div>
+            </div>
+            
+            <div class="verse-box">
+                <div class="verse-reference">Notre Vision Commune</div>
+                <div class="verse-text">
+                    "Nous voyons le territoire Français et les extrémités de la terre gagnés à Christ. 
+                    Notre désir est de conquérir massivement les territoires par l'onction de miracles 
+                    et de guérison instantanée."
                 </div>
             </div>
             
-            <div style="margin-top: 40px; text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
-                <h3 style="color: #0D47A1;">Notre Vision Commune</h3>
-                <p style="font-size: 1.2em; margin-top: 20px; font-style: italic;">
-                    "Nous voyons le territoire Français et les extrémités de la terre gagnés à Christ.<br>
-                    Notre désir est de conquérir massivement les territoires par l'onction de miracles et de guérison."
-                </p>
-                <p style="margin-top: 30px; font-weight: bold; color: #00968B;">
-                    Bienvenue dans la famille KOL Ministries !
-                </p>
+            <h3>Vos Premiers Pas</h3>
+            <div class="objectives-list">
+                <li>Rencontrez votre responsable de pôle pour comprendre votre rôle spécifique</li>
+                <li>Participez aux temps de prière et d'intercession de l'équipe</li>
+                <li>Familiarisez-vous avec la vision et les valeurs de votre branche</li>
+                <li>Connectez-vous aux ressources et formations disponibles</li>
+            </div>
+            
+            <div style="background: #f8f9fa; padding: 40px; border-radius: 15px; margin-top: 40px; text-align: center;">
+                <h3 style="color: #0D47A1; margin-top: 0;">Contacts Essentiels</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px;">
+                    <div>
+                        <strong style="color: #00968B;">Supervision Générale</strong><br>
+                        Dorcas
+                    </div>
+                    <div>
+                        <strong style="color: #00968B;">Téléphone</strong><br>
+                        06 14 87 17 06
+                    </div>
+                    <div>
+                        <strong style="color: #00968B;">Email</strong><br>
+                        collectifhem@gmail.com
+                    </div>
+                    <div>
+                        <strong style="color: #00968B;">Réseaux</strong><br>
+                        @collectifhem
+                    </div>
+                </div>
+                
+                <div style="margin-top: 40px; padding: 25px; background: white; border-radius: 10px;">
+                    <p style="font-size: 1.3em; color: #0D47A1; font-weight: bold;">
+                        "La vision m'habite"
+                    </p>
+                    <p style="margin-top: 15px; font-style: italic;">
+                        Que cette vision devienne votre passion quotidienne<br>
+                        pour voir des millions d'âmes touchées par le surnaturel de Dieu !
+                    </p>
+                </div>
             </div>
         </div>
         
